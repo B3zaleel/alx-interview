@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+'''A module for working with Pascal's triangle.
+'''
 from typing import List
 
 
