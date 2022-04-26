@@ -2,6 +2,7 @@
 '''A script for parsing HTTP request logs.
 '''
 import re
+import sys
 
 
 def extract_input(input_line):
@@ -70,8 +71,7 @@ def run():
         '500': 0,
     }
     try:
-        while True:
-            line = input()
+        for line in sys.stdin:
             total_file_size = update_metrics(
                 line,
                 total_file_size,
