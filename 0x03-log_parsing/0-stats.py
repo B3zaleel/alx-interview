@@ -19,7 +19,7 @@ def extract_input(input_line):
         'status_code': 0,
         'file_size': 0,
     }
-    log_fmt = f'{fp[0]}\\-{fp[1]}{fp[2]}{fp[3]}{fp[4]}\\s*'
+    log_fmt = '{}\\-{}{}{}{}\\s*'.format(fp[0], fp[1], fp[2], fp[3], fp[4])
     resp_match = re.fullmatch(log_fmt, input_line)
     if resp_match is not None:
         status_code = resp_match.group('status_code')
