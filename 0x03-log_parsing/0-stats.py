@@ -49,10 +49,9 @@ def get_metrics(line):
     Args:
         line (str): The line of input from which to retrieve the metrics.
     '''
-    import re
     global total_file_size, log_fmt, status_codes_stats
-    resp_match = re.fullmatch(log_fmt, line)
-    if resp_match is not None:
+    resp_match = None
+    if resp_match:
         status_code = resp_match.group('status_code')
         file_size = int(resp_match.group('file_size'))
         total_file_size += file_size
