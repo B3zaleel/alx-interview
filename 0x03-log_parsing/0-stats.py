@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''A script for parsing HTTP request logs.
 '''
+import re
 
 
 status_codes_stats = {
@@ -49,7 +50,6 @@ def get_metrics(line):
     Args:
         line (str): The line of input from which to retrieve the metrics.
     '''
-    import re
     global total_file_size, log_fmt, status_codes_stats
     resp_match = re.fullmatch(log_fmt, line)
     if resp_match is not None:
