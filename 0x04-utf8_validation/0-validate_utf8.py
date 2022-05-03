@@ -17,9 +17,7 @@ def validUTF8(data):
         else:
             return False
     try:
-        byte_str = bytes(byte_parts).decode("utf-8", "strict")
-        print(data, ":", byte_str)
-    except Exception as ex:
-        print(ex)
+        _ = bytes(byte_parts).decode("utf-8", "strict")
+    except Exception:
         return False
     return True
