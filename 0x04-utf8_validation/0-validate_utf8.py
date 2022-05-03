@@ -56,4 +56,6 @@ def validUTF8(data):
                 skip = span - 1
             else:
                 return False
+        else:
+            return False
     return skip == 0
