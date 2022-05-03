@@ -58,4 +58,4 @@ def validUTF8(data):
                 return False
         else:
             return False
-    return skip == 0
+    return True
