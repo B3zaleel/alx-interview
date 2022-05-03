@@ -10,7 +10,7 @@ def validUTF8(data):
     if data is None:
         return False
     try:
-        _ = bytes(data).decode("utf-8", "strict")
+        _ = bytes(data).decode("utf-8")
     except Exception:
         return False
     return True
