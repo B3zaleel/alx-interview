@@ -7,8 +7,6 @@ def validUTF8(data):
     """Checks if a list of integers are valid UTF-8 codepoints.
     See <https://datatracker.ietf.org/doc/html/rfc3629#page-4>
     """
-    if not isinstance(data, (list, tuple)):
-        return False
     skip = 0
     n = len(data)
     for i in range(n):
@@ -24,7 +22,7 @@ def validUTF8(data):
             span = 4
             if n - i >= span:
                 next_body = list(map(
-                    lambda x: (x >> 6) | 0b10 == 0b10,
+                    lambda x: x >> 6 == 0b10,
                     data[i + 1: span],
                 ))
                 if not all(next_body):
@@ -37,7 +35,7 @@ def validUTF8(data):
             span = 3
             if n - i >= span:
                 next_body = list(map(
-                    lambda x: (x >> 6) | 0b10 == 0b10,
+                    lambda x: x >> 6 == 0b10,
                     data[i + 1: span],
                 ))
                 if not all(next_body):
@@ -50,7 +48,7 @@ def validUTF8(data):
             span = 2
             if n - i >= span:
                 next_body = list(map(
-                    lambda x: (x >> 6) | 0b10 == 0b10,
+                    lambda x: x >> 6 == 0b10,
                     data[i + 1: span],
                 ))
                 if not all(next_body):
