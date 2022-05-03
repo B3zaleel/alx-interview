@@ -8,6 +8,7 @@ def validUTF8(data):
     See <https://datatracker.ietf.org/doc/html/rfc3629#page-4>
     """
     valid_flags = []
+
     def bin_len(c_byte):
         return len(bin(c_byte)[2:])
     for c in data:
