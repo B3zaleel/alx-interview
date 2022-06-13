@@ -26,6 +26,6 @@ This project contains interview coding challenges.
       + Ben picks 3 and removes 3, leaving 1, 5.
       + Maria picks 5 and removes 5, leaving 1.
       + Maria wins because there are no prime numbers left for Ben to choose.
-    + Third round: 1
+    + Third round: `n = 1`
       + Ben wins because there are no prime numbers for Maria to choose.
     + Result: *Ben* has the most wins.
