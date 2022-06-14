@@ -9,9 +9,9 @@ def isWinner(x, nums):
     players = ('Maria', 'Ben')
     winners = []
     nums_len = len(nums) if nums else 0
-    if x <= 0:
-        return None
     for i in range(x):
+        if i >= nums_len:
+            break
         n = nums[i % nums_len] if nums else 0
         n_nums = list(range(1, n + 1, 1))
         prime = 2
@@ -31,6 +31,7 @@ def isWinner(x, nums):
                         break
             else:
                 break
+        print('Winner for this turn [{}]: {}'.format(n, players[turns % 2]))
         winners.append(players[turns % 2])
     marias_wins = winners.count(players[0])
     bens_wins = winners.count(players[1])
