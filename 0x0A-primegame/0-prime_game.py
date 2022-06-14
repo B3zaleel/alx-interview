@@ -8,9 +8,9 @@ def isWinner(x, nums):
     """
     players = ('Maria', 'Ben')
     winners = []
-    nums_len = len(nums) if nums else 0
-    if x <= 0:
+    if type(x) != int or x < 0:
         return None
+    nums_len = len(nums) if nums else 0
     for i in range(x):
         n = nums[i % nums_len] if nums else 0
         n_nums = list(range(1, n + 1, 1))
