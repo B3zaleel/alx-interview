@@ -37,5 +37,5 @@ def isWinner(x, nums):
     marias_wins = winners.count(players[0])
     bens_wins = winners.count(players[1])
     if marias_wins == bens_wins:
-        return None
+        return winners[-1]
     return 'Maria' if marias_wins > bens_wins else 'Ben'
