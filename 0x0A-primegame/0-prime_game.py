@@ -13,6 +13,8 @@ def isWinner(x, nums):
     nums_len = len(nums) if nums else 0
     for i in range(x):
         n = nums[i % nums_len] if nums else 0
+        if type(n) != int:
+            continue
         n_nums = list(range(1, n + 1, 1))
         prime = 2
         turns = 0
