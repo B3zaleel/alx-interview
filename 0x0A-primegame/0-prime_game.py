@@ -6,11 +6,11 @@
 def isWinner(x, nums):
     """Determines the winner of a prime game session with `x` rounds.
     """
+    if not nums or x < 1:
+        return None
     players = ('Maria', 'Ben')
     winners = []
-    nums_len = len(nums) if nums else 0
-    if nums_len == 0:
-        return None
+    nums_len = len(nums)
     for i in range(x):
         n = nums[i] if i < nums_len else 0
         n_nums = list(range(1, n + 1, 1))
