@@ -3,14 +3,6 @@
 """
 
 
-def is_prime(num):
-    num_sqrt = int(num ** 0.5 + 1)
-    for i in range(2, num_sqrt):
-        if num % i == 0:
-            return False
-    return True
-
-
 def isWinner(x, nums):
     """Determines the winner of a prime game session with `x` rounds.
     """
@@ -31,14 +23,10 @@ def isWinner(x, nums):
                     removal_ocurred = True
             turns += 1
             if removal_ocurred:
-                next_prime_chosen = False
                 for val in n_nums:
-                    if val > prime and is_prime(val):
+                    if val > prime:
                         prime = val
-                        next_prime_chosen = True
                         break
-                if not next_prime_chosen:
-                    break
             else:
                 break
         winners.append(players[turns % 2])
