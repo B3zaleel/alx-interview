@@ -6,26 +6,23 @@
 def isWinner(x, nums):
     """Determines the winner of a prime game session with `x` rounds.
     """
-    if not nums or x < 1:
+    if x < 1 or not nums:
         return None
+    marias_wins, bens_wins = 0, 0
+    # generate primes with a limit of the maximum number in nums
     n = max(nums)
-    fltr = [True for _ in range(max(n + 1, 2))]
-    for i in range(2, int(pow(n, 0.5)) + 1):
-        if not fltr[i]:
+    primes = [True for _ in range(1, n + 1, 1)]
+    primes[0] = False
+    for i, is_prime in enumerate(primes, 1):
+        if i == 1 or not is_prime:
             continue
-        for j in range(i * i, n + 1, i):
-            fltr[j] = False
-    fltr[0] = fltr[1] = False
-    c = 0
-    for i in range(len(fltr)):
-        if fltr[i]:
-            c += 1
-        fltr[i] = c
-    plyr1 = 0
-    for n in nums:
-        plyr1 += fltr[n] % 2 == 1
-    if plyr1 * 2 == len(nums):
+        for j in range(i + i, n + 1, i):
+            primes[j - 1] = False
+    # filter the number of primes less than n in nums for each round
+    for _, n in zip(range(x), nums):
+        primes_count = len(list(filter(lambda x: x, primes[0: n])))
+        bens_wins += primes_count % 2 == 0
+        marias_wins += primes_count % 2 == 1
+    if marias_wins == bens_wins:
         return None
-    if plyr1 * 2 > len(nums):
-        return "Maria"
-    return "Ben"
+    return 'Maria' if marias_wins > bens_wins else 'Ben'
